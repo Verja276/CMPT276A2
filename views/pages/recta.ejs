@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rectangle Information</title>
+
+    <link rel="stylesheet" , type="text/css" href="/stylesheets/stylesheet.css" />
+</head>
+
+<body id="background">
+
+        <a href="/database" id="Home">Home</a>
+        <div id="DisplayName">Rectangle Information</div>
+        <p id = "note">If you want to update the name of the rectangle you can type it in but you have to go back to home to see results since the URL is changing!</p>
+        <p id = "note">Everything else can be updated on screen!</p>
+        <br></br>
+        <form>
+            <table id="info">
+                <% results.forEach(function(r) { %>
+                    <tr>
+                        <th>Rectangle Name</th>
+                        <td>
+                            <%=r.name%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Height</th>
+                        <td>
+                            <%=r.height%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Width</th>
+                        <td>
+                            <%=r.width%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Color</th>
+                        <td>
+                            <%=r.color%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Personality</th>
+                        <td>
+                            <%=r.personality%>
+                        </td>
+                    </tr>
+                    <%}); %>
+            </table>
+            <br></br>
+        </form>
+        <% results.forEach(function(r) { %>
+            <form id = "box" style=background-color:<%=r.color%>;
+                width: <%=r.width%>px;
+                    height:<%=r.height%>px;
+    
+    
+                        >
+                        <%=r.name%>
+                            <%}); %>
+    
+    
+            </form>
+            
+        <% results.forEach(function(r) { %>
+            <form action="/database/<%=r.name%>" id="insert" method="post">
+                <%}); %>
+                    <div id="text">Update Data</div>
+                    <table id="inserttable">
+                        <tr id="title">
+                            <td>Rectangle Name</td>
+                            <td>Height</td>
+                            <td>Width</td>
+                            <td>Color</td>
+                            <td>Personality</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="updateNm" name="updateNm"></td>
+                            <td><input type="text" id="updateHt" name="updateHt"></td>
+                            <td><input type="text" id="updateWd" name="updateWd"></td>
+                            <td><input type="text" id="updateClr" name="updateClr"></td>
+                            <td><input type="text" id="updatePer" name="updatePer"></td>
+                        </tr>
+                    </table>
+                    </div>
+                    <div>
+                        <input type="submit" id="Updatevals" value="Update" />
+                    </div>
+
+
+            </form>
+            
+</body>
+
+</html>

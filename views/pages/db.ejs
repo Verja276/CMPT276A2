@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet", type="text/css" href="/stylesheets/stylesheet.css"/>
+</head>
+
+<body id="background">
+
+<h1>Rectangles</h1>
+<p id = "note">Height and Weight have to be numbers only!</p>
+<p id = "note">Character limit is 10!</p>
+<p id = "note">Colors have to be commonly used!</p>
+<p id = "note">Click the name of the rectangle to be taken to its info page and update values!</p>
+  <form class="" action="/database/i" id="insert" method="post">
+    <div id="text">Insert New Rectangle</div>
+    <table id="inserttable">
+      <tr id ="title">
+        <td>Rectangle Name</td>
+        <td>Height</td>
+        <td>Width</td>
+        <td>Color</td>
+        <td>Personality</td>
+      </tr>
+      <tr>
+        <td><input type="text" id="Rectangle Name" name="name"></td>
+        <td><input type="text" id="Height" name="height"></td>
+        <td><input type="text" id="Width" name="width"></td>
+        <td><input type="text" id="Color" name="color"></td>
+        <td><input type="text" id="Personality" name="personality"></td>
+      </tr>
+    </table>
+  <input type ="submit" id ="Updatevals" value ="Add"/>
+ 
+  </form>
+  <br></br>
+  <form action="/database/d" id="delete" method="post">
+    <div id="text">Delete by Name</div>
+    <input type="text" id="deletename" name="deletename">
+    <div>
+    <input type ="submit" id ="deleteBtn" value = "Delete"/>
+  </div>
+  </form>
+  <br></br>
+  <table id="database">
+    <tr>
+      <td>Rectangle Name</td>
+      <td>Height</td>
+      <td>Width</td>
+      <td>Color</td>
+      <td>Personality</td>
+    </tr>
+    <% results.forEach(function(r) { %>
+       <tr>
+        <td><a href="/database/<%=r.name%>" onclick="location.href=this.href+<%=r.name%>;return false">
+
+          <%= r.name%></a></td>
+        <td><%=r.height%></td>
+        <td><%=r.width%></td>
+        <td><%=r.color%></td>
+        <td><%=r.personality%></td>
+      </tr>
+    <% }); %>
+  </table>
+  <div></div>
+</body>
+</html>
